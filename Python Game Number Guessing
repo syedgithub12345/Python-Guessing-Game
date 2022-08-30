@@ -1,0 +1,33 @@
+#Python Guessing Game.
+#Thanks for visiting.
+
+import random
+import math
+
+print("May I ask you for your name?")
+name=input()
+print(name + ", we are going to play a game.")
+print("Go ahead. The Guessing Game !!!")
+
+lower = int(input("Enter small integer number:- "))
+upper = int(input("Enter big integer number:- "))
+x = random.randint(lower, upper)
+print("\n\tYou've only ",round(math.log(upper - lower , 2))," chances to guess the integer!\n")
+
+count = 0
+while count < math.log(upper - lower , 2):
+	count += 1
+
+	guess = int(input("Guess a number:- "))
+
+	if x == guess:
+		print("Congratulations you did it in ",count, " try")
+		break
+	elif x > guess:
+		print("You guessed too small!")
+	elif x < guess:
+		print("You Guessed too high!")
+
+if count >= math.log(upper - lower , 2):
+	print("\nThe number is %d" % x)
+	print("\tBetter Luck Next time!")
